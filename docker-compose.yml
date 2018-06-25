@@ -1,0 +1,36 @@
+version: '3'
+
+# networks:
+#     default:
+#         external:
+#             name: vcm
+
+services:
+    app:
+        build:
+            dockerfile: Dockerfile
+            context: .
+            args:
+                buildenv: local
+        ports:
+            - "3008:80"
+            - "9208:9229"
+        volumes:
+            - ./:/code
+        env_file: .env
+        environment:
+            APP_ENV: local
+
+        # command: "nodemon index"
+        # command: "node --inspect=0.0.0.0:9229 index"
+        # command: "nodemon --inspect=0.0.0.0:9229 index"
+        command: "npm run dev"
+
+    # godfather_db:
+    #     image: mongo:3.2.6
+    #     ports:
+    # #         - "27033:27017"
+    # redis:
+    #     image: redis:3.2.1-alpine
+    #     ports:
+    #         - "6382:6379"

@@ -1,0 +1,27 @@
+{
+  "name": "scraprmarc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "node-fetch": "^2.1.2",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "nodemon --inspect=0.0.0.0:9229 index",
+    "start": "node index",
+    "watch": "node index",
+    "test": "./node_modules/.bin/jasmine-node tests",
+    "unit-test": "node unit-test.js",
+    "integration-test": "node integration-test.js"
+  },
+  "nodemonConfig": {
+    "ignore": ["app/output/*"]
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
