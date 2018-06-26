@@ -20,11 +20,8 @@ services:
         env_file: .env
         environment:
             APP_ENV: local
-
-        # command: "nodemon index"
-        # command: "node --inspect=0.0.0.0:9229 index"
-        # command: "nodemon --inspect=0.0.0.0:9229 index"
-        command: "npm run dev"
+        # command: "npm run dev"
+        command: sh -c "npm install && npm run dev"
 
     # godfather_db:
     #     image: mongo:3.2.6
