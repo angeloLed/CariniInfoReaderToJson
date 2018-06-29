@@ -4,8 +4,10 @@ const fs = require('fs');
 
 
 let data = [];
-let year = '2018';
-let cat = 0;
+const minYear = 2014;
+const maxYear = 2018;
+const minCategory = 0;
+const maxCategory = 29;
 
 async function callFetch(year, cat) {
     const uri = 'https://www.comune.carini.pa.it/albo.asp?cat=' + cat + '&year=' + year
@@ -26,9 +28,9 @@ function saveToFile(content) {
 }
 
 // RUN
-async function runCat(cat) {
+async function runByCategory(cat) {
     let promises = [];
-    for(let year = 2014; year <= 2018; year++) {
+    for(let year = minYear; year <= maxYear; year++) {
 	    promises.push(callFetch(year,cat));
     }
 
@@ -44,8 +46,8 @@ async function runCat(cat) {
 }
 
 async function mainProcess() {
-    for(let cat = 0; cat <= 29; cat++) {
-	    await runCat(cat);
+    for(let cat = minCategory; cat <= maxCategory; cat++) {
+	    await runByCategory(cat);
     }
     saveToFile(JSON.stringify(data));
 }

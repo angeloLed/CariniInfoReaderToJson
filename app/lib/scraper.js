@@ -2,8 +2,6 @@ const cheerio = require('cheerio');
 
 class Scraper
 {
-
-
     run(html) {
         let rows = [];
 
