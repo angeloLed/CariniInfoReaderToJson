@@ -75,3 +75,4 @@ typings/
 
 # other
 app/output/*
+app/output*
